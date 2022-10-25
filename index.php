@@ -1,0 +1,54 @@
+<?php
+session_start();
+include 'db_connection.php';
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $name = $_POST['name'];
+  $password = $_POST['password'];
+  $sql = "SELECT * FROM db_user WHERE name='$name' && password='$password'";
+  $sqlName = "SELECT name FROM db_user WHERE name='$name' && password='$password'";
+
+  $result = mysqli_query($conn, $sql);
+  $row = mysqli_fetch_assoc($result);
+  $count = mysqli_num_rows($result);
+
+  // If result matched $myusername and $mypassword, table row must be 1 row
+  if ($count == 1) {
+    $_SESSION['login_name'] = $row['name'];
+    header('Location: success.html');
+    header('Location: stock/stock.php');
+  } else {
+    echo '<script>alert("Nome ou senha invalida!")</script>';
+  }
+}
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Login</title>
+</head>
+
+<body>
+  <form method="POST">
+    <div class="container">
+      <label for="name"><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" id="name" name="name" required />
+
+      <label for="password"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" id="password" name="password" required />
+
+      <button type="submit">Login</button>
+    </div>
+  </form>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
