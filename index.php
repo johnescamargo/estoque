@@ -1,26 +1,6 @@
 <?php
 session_start();
-include 'db_connection.php';
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  $name = $_POST['name'];
-  $password = $_POST['password'];
-  $sql = "SELECT * FROM db_user WHERE name='$name' && password='$password'";
-  $sqlName = "SELECT name FROM db_user WHERE name='$name' && password='$password'";
-
-  $result = mysqli_query($conn, $sql);
-  $row = mysqli_fetch_assoc($result);
-  $count = mysqli_num_rows($result);
-
-  // If result matched $myusername and $mypassword, table row must be 1 row
-  if ($count == 1) {
-    $_SESSION['login_name'] = $row['name'];
-    header('Location: success.html');
-    header('Location: stock/stock.php');
-  } else {
-    echo '<script>alert("Nome ou senha invalida!")</script>';
-  }
-}
+include('db_connection.php');
 
 ?>
 
@@ -52,3 +32,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </body>
 
 </html>
+
+<?php
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $name = $_POST['name'];
+  $password = $_POST['password'];
+  $sql = "SELECT * FROM db_user WHERE name='$name' && password='$password'";
+  $sqlName = "SELECT name FROM db_user WHERE name='$name' && password='$password'";
+
+  $result = mysqli_query($conn, $sql);
+  $row = mysqli_fetch_assoc($result);
+  $count = mysqli_num_rows($result);
+
+  // If result matched $name and $password, table row must be 1 row
+  if ($count == 1) {
+    $_SESSION['login_name'] = $row['name'];
+    header('Location: success.html');
+    header('Location: stock/produtos.php');
+  } else {
+    echo '<script>alert("Nome ou senha invalida!")</script>';
+  }
+}
+?>
