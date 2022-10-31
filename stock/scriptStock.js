@@ -16,6 +16,9 @@ $(document).ready(function () {
   });
 });
 
+
+
+//Sticky Navbar
 window.onscroll = function () {
   myFunction();
 };

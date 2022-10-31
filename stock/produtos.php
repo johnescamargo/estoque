@@ -1,6 +1,7 @@
 <?php
 include('session.php');
 include('fetch.php');
+include('save_product.php');
 ?>
 
 <!DOCTYPE html>
@@ -21,6 +22,7 @@ include('fetch.php');
     <a class="active" href="produtos.php">Produtos</a>
     <a href="novo_produto.php">Novo Produto</a>
     <a href="nova_categoria.php">Nova Categoria</a>
+    <a href="novo_usuario.php">Nova Usuário</a>
     <a href="../logout.php">Sair</a>
   </div>
 
@@ -50,11 +52,11 @@ include('fetch.php');
 
     </div>
 
-  </div>
+    <div class="test">
 
-  <script src="scriptStock.js">
+    </div>
 
-  </script>
+    <script src="scriptStock.js"> </script>
 </body>
 
 </html>

@@ -18,13 +18,13 @@ include('db_connection.php');
 <body>
   <form method="POST">
     <div class="container">
-      <label for="name"><b>Username</b></label>
+      <label for="name"><b>Usuário</b></label>
       <input type="text" placeholder="Enter Username" id="name" name="name" required />
 
-      <label for="password"><b>Password</b></label>
+      <label for="password"><b>Senha</b></label>
       <input type="password" placeholder="Enter Password" id="password" name="password" required />
 
-      <button type="submit">Login</button>
+      <button type="submit">Entrar</button>
     </div>
   </form>
 
@@ -51,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     header('Location: success.html');
     header('Location: stock/produtos.php');
   } else {
-    echo '<script>alert("Nome ou senha invalida!")</script>';
+    echo '<div>Nome ou senha invalida!</div>';
   }
 }
 ?>

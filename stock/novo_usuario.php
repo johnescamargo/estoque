@@ -19,49 +19,28 @@ include('session.php');
   <div id="navbar">
     <a href="produtos.php">Produtos</a>
     <a href="novo_produto.php">Novo Produto</a>
-    <a class="active" href="nova_categoria.php">Nova Categoria</a>
-    <a href="novo_usuario.php">Novo Usuário</a>
+    <a href="nova_categoria.php">Nova Categoria</a>
+    <a class="active" href="novo_usuario.php">Novo Usuário</a>
     <a href="../logout.php">Sair</a>
   </div>
 
   <form method="POST">
     <div class="container">
-      <label for="name"><b>Nome da categoria</b></label>
-      <input type="text" placeholder="Enter name" id="name" name="name" required />
-      <button type="submit">Salvar</button>
+      <label for="name"><b>Usuário</b></label>
+      <input type="text" placeholder="Enter Username" id="name" name="name" required />
+
+      <label for="password"><b>Senha</b></label>
+      <input type="password" placeholder="Enter Password" id="password" name="password" required />
+
+      <button type="submit">Entrar</button>
     </div>
-
-    <?php
-
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-      $name = $_POST['name'];
-      echo $name;
-
-      if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-      }
-
-      $sql = "INSERT INTO mydb.db_category
-              (name)
-              VALUES ('$name');";
-
-      if ($conn->query($sql) === TRUE) {
-        echo "New record created successfully";
-        header('Location: nova_categoria.php');
-      } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
-      }
-
-      $conn->close();
-    }
-    ?>
   </form>
 
 
   <div class="content">
     <table class="table" id='customers'>
       <?php
-      $sql = "SELECT * FROM db_category;";
+      $sql = "SELECT * FROM db_user;";
       if ($result = mysqli_query($conn, $sql)) {
         if (mysqli_num_rows($result) > 0) {
       ?>
