@@ -1,5 +1,5 @@
 <?php
-include("session.php");
+//include("session.php");
 include("save_product.php");
 
 if (isset($_POST['request'])) {
@@ -45,7 +45,7 @@ if (isset($_POST['request'])) {
                     <tr>
                         <td id="id-<?php echo $row["id"] ?>"><?php echo $row["id"] ?></td>
                         <td><a href="http://www.google.com"><?php echo $row["name"] ?></a></td>
-                        <td><input id="entrada-<?php echo $row["id"] ?>" type='text' placeholder="0"></td>
+                        <td><input type="number" pattern="\d*" id="entrada-<?php echo $row["id"] ?>" type='text' placeholder="0"></td>
                         <td><input id="venda-<?php echo $row["id"] ?>" type='text' placeholder="0"></td>
                         <td><input id="consumo-<?php echo $row["id"] ?>" type='text' placeholder="0"></td>
                         <td><input id="perda-<?php echo $row["id"] ?>" type='text' placeholder="0"></td>

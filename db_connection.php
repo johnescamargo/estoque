@@ -2,7 +2,7 @@
 //MAMP and phpMyAdmin
 $servername = "localhost:3306";
 $username = "root";
-$password = "76718244";
+$password = "";
 $database = "mydb";
 
 // Create connection
