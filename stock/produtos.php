@@ -1,5 +1,5 @@
 <?php
-include('session.php');
+//include('session.php');
 include('fetch.php');
 include('save_product.php');
 

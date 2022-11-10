@@ -46,7 +46,7 @@ if (isset($_POST['request'])) {
                     <tr>
                         <td id="id-<?php echo $row["id"] ?>"><?php echo $row["id"] ?></td>
                         <td><a href="http://www.google.com"><?php echo $row["name"] ?></a></td>
-                        <td><input type="text" pattern="\d*" id="entrada-<?php echo $row["id"] ?>" type='text' placeholder="0"></td>
+                        <td><input id="entrada-<?php echo $row["id"] ?>" type='text' placeholder="0"></td>
                         <td><input id="venda-<?php echo $row["id"] ?>" type='text' placeholder="0"></td>
                         <td><input id="consumo-<?php echo $row["id"] ?>" type='text' placeholder="0"></td>
                         <td><input id="perda-<?php echo $row["id"] ?>" type='text' placeholder="0"></td>
