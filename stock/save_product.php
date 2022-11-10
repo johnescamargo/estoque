@@ -1,14 +1,16 @@
 <?php
 include('db_connection.php');
-include('session.php');
-
-$data = json_decode(stripslashes($_POST['data']));
+if (!isset($_SESSION)) {
+   session_start();
+}
 
 // foreach ($data as $d) {
 //    echo $d;
 // }
 
 if (isset($_POST['data'])) {
+   // Data from jquery ajax
+   $data = json_decode(stripslashes($_POST['data']));
 
    $id_produto = $data[0];
    $categoria_name = $data[1];
@@ -46,7 +48,7 @@ if (isset($_POST['data'])) {
       '$id_produto', '$id_category');";
 
       if ($conn->query($sql2) === TRUE) {
-         echo "New record created successfully";
+         echo "New record created successfully/n";
       } else {
          echo "Error: " . $sql2 . "<br>" . $conn->error;
       }

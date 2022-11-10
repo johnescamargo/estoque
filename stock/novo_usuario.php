@@ -15,26 +15,50 @@ include('session.php');
 </head>
 
 <body>
-
-  <div id="navbar">
-    <a href="produtos.php">Produtos</a>
-    <a href="novo_produto.php">Novo Produto</a>
-    <a href="nova_categoria.php">Nova Categoria</a>
-    <a class="active" href="novo_usuario.php">Novo Usuário</a>
-    <a href="../logout.php">Sair</a>
-  </div>
+  <nav class="navbar">
+    <div class="brand-title">Bar do Bola</div>
+    <a href="#" class="toggle-button">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </a>
+    <div class="navbar-links">
+      <ul>
+        <li><a href="produtos.php">Produtos</a></li>
+        <li><a href="novo_produto.php">Novo Produto</a></li>
+        <li><a href="nova_categoria.php">Nova Categoria</a></li>
+        <li><a class="active" href="novo_usuario.php">Novo Usuário</a></li>
+        <li><a href="../logout.php">Sair</a></li>
+      </ul>
+    </div>
+  </nav>
 
   <form method="POST">
     <div class="container">
       <label for="name"><b>Usuário</b></label>
-      <input type="text" placeholder="Enter Username" id="name" name="name" required />
-
+      <input type="text" placeholder="Nome" id="name" name="name" required />
       <label for="password"><b>Senha</b></label>
-      <input type="password" placeholder="Enter Password" id="password" name="password" required />
-
+      <input type="password" placeholder="Senha" id="password" name="password" required />
       <button type="submit">Entrar</button>
     </div>
   </form>
+  <?php
+
+  if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = $_POST['name'];
+    $password = $_POST['password'];
+    $sql3 = "INSERT INTO mydb.db_user (name, password) VALUES('$name', '$password');";
+
+    if ($conn->query($sql3) === TRUE) {
+      echo "New record created successfully/n";
+      header("Location: novo_usuario.php");
+    } else {
+      echo "Error: " . $sql3 . "<br>" . $conn->error;
+    }
+  }
+  ?>
+
+
 
 
   <div class="content">
@@ -47,7 +71,7 @@ include('session.php');
           <thead>
             <tr>
               <th>Id</th>
-              <th>Nome da categoria</th>
+              <th>Nome</th>
             </tr>
 
           </thead>

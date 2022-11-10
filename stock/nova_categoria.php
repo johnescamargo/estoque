@@ -15,14 +15,23 @@ include('session.php');
 </head>
 
 <body>
-
-  <div id="navbar">
-    <a href="produtos.php">Produtos</a>
-    <a href="novo_produto.php">Novo Produto</a>
-    <a class="active" href="nova_categoria.php">Nova Categoria</a>
-    <a href="novo_usuario.php">Novo Usuário</a>
-    <a href="../logout.php">Sair</a>
-  </div>
+  <nav class="navbar">
+    <div class="brand-title">Bar do Bola</div>
+    <a href="#" class="toggle-button">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </a>
+    <div class="navbar-links">
+      <ul>
+        <li><a href="produtos.php">Produtos</a></li>
+        <li><a href="novo_produto.php">Novo Produto</a></li>
+        <li><a class="active" href="nova_categoria.php">Nova Categoria</a></li>
+        <li><a href="novo_usuario.php">Novo Usuário</a></li>
+        <li><a href="../logout.php">Sair</a></li>
+      </ul>
+    </div>
+  </nav>
 
   <form method="POST">
     <div class="container">

@@ -1,5 +1,5 @@
 <?php
-include("session.php");
+//include("session.php");
 include("save_product.php");
 
 if (isset($_POST['request'])) {
@@ -30,10 +30,11 @@ if (isset($_POST['request'])) {
                     <th>Consumo</th>
                     <th>Perda</th>
                     <th>Em estoque</th>
+                    <th></th>
                 </tr>
             <?php
         } else {
-            echo "Sorry, no record found";
+            echo "Desculpe, nenhumproduto encontrado";
         }
             ?>
             </thead>
@@ -45,7 +46,7 @@ if (isset($_POST['request'])) {
                     <tr>
                         <td id="id-<?php echo $row["id"] ?>"><?php echo $row["id"] ?></td>
                         <td><a href="http://www.google.com"><?php echo $row["name"] ?></a></td>
-                        <td><input id="entrada-<?php echo $row["id"] ?>" type='text' placeholder="0"></td>
+                        <td><input type="text" pattern="\d*" id="entrada-<?php echo $row["id"] ?>" type='text' placeholder="0"></td>
                         <td><input id="venda-<?php echo $row["id"] ?>" type='text' placeholder="0"></td>
                         <td><input id="consumo-<?php echo $row["id"] ?>" type='text' placeholder="0"></td>
                         <td><input id="perda-<?php echo $row["id"] ?>" type='text' placeholder="0"></td>
@@ -53,8 +54,10 @@ if (isset($_POST['request'])) {
                             <div id="quantity-<?php echo $row["id"] ?>">
                                 <?php echo $row["quantity"] ?>
                             </div>
+                        </td>
+                        <td>
                             <div>
-                                <button id='<?php echo $row["id"] ?>'>Salvar</button>
+                                <button class="button-save" id='<?php echo $row["id"] ?>'>Salvar</button>
                             </div>
                         </td>
                     </tr>

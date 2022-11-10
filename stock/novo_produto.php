@@ -16,19 +16,29 @@ include('session.php');
 
 <body>
 
-  <div id="navbar">
-    <a href="produtos.php">Produtos</a>
-    <a class="active" href="novo_produto.php">Novo Produto</a>
-    <a href="nova_categoria.php">Nova Categoria</a>
-    <a href="novo_usuario.php">Novo Usuário</a>
-    <a href="../logout.php">Sair</a>
-  </div>
+  <nav class="navbar">
+    <div class="brand-title">Bar do Bola</div>
+    <a href="#" class="toggle-button">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </a>
+    <div class="navbar-links">
+      <ul>
+        <li><a href="produtos.php">Produtos</a></li>
+        <li><a class="active" href="novo_produto.php">Novo Produto</a></li>
+        <li><a href="nova_categoria.php">Nova Categoria</a></li>
+        <li><a href="novo_usuario.php">Novo Usuário</a></li>
+        <li><a href="../logout.php">Sair</a></li>
+      </ul>
+    </div>
+  </nav>
 
 
   <form method="POST">
     <div class="container">
       <label for="name"><b>Nome do Produto</b></label>
-      <div class="content">
+      <div>
 
         <?php
 
@@ -49,33 +59,33 @@ include('session.php');
         ?>
 
 
+
+        <input type="text" placeholder="Enter Username" id="name" name="name" required />
+        <button type="submit">Salvar</button>
       </div>
-      <input type="text" placeholder="Enter Username" id="name" name="name" required />
-      <button type="submit">Salvar</button>
-    </div>
-    <?php
+      <?php
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-      $name = $_POST['name'];
-      $id = $_POST['category_product'];
+      if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $name = $_POST['name'];
+        $id = $_POST['category_product'];
 
-      if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-      }
+        if ($conn->connect_error) {
+          die("Connection failed: " . $conn->connect_error);
+        }
 
-      $sql = "INSERT INTO mydb.db_product
+        $sql = "INSERT INTO mydb.db_product
               (name, quantity, db_category_id)
               VALUES ('$name', 0, '$id')";
 
-      if ($conn->query($sql) === TRUE) {
-        echo "New record created successfully";
-      } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
-      }
+        if ($conn->query($sql) === TRUE) {
+          echo "New record created successfully";
+        } else {
+          echo "Error: " . $sql . "<br>" . $conn->error;
+        }
 
-      $conn->close();
-    }
-    ?>
+        $conn->close();
+      }
+      ?>
   </form>
 
   <script src="scriptStock.js">

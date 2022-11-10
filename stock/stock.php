@@ -1,8 +1,6 @@
 <?php
 include('session.php');
 include('fetch.php');
-include('save_product.php');
-
 ?>
 
 <!DOCTYPE html>
@@ -18,25 +16,15 @@ include('save_product.php');
 </head>
 
 <body>
-  <nav class="navbar">
-    <div class="brand-title">Bar do Bola</div>
-    <a href="#" class="toggle-button">
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
-    </a>
-    <div class="navbar-links">
-      <ul>
-        <li><a class="active" href="produtos.php">Produtos</a> </li>
-        <li><a href="novo_produto.php">Novo Produto</a></li>
-        <li><a href="nova_categoria.php">Nova Categoria</a></li>
-        <li><a href="novo_usuario.php">Novo Usuário</a></li>
-        <li><a href="../logout.php">Sair</a></li>
-      </ul>
-    </div>
-  </nav>
 
-  <div class="container">
+  <div id="navbar">
+    <a class="active" href="stock.php">Produtos</a>
+    <a href="javascript:void(0)">Novo Produto</a>
+    <a href="javascript:void(0)">Nova Categoria</a>
+    <a href="../logout.php">Sair</a>
+  </div>
+
+  <div class="content">
 
     <?php
 
@@ -62,11 +50,11 @@ include('save_product.php');
 
     </div>
 
-    <div class="test">
+  </div>
 
-    </div>
+  <script src="scriptStock.js">
 
-    <script src="scriptStock.js"> </script>
+  </script>
 </body>
 
 </html>

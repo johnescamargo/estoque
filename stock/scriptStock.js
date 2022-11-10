@@ -1,3 +1,10 @@
+const toggleButton = document.getElementsByClassName("toggle-button")[0];
+const navbarLinks = document.getElementsByClassName("navbar-links")[0];
+
+toggleButton.addEventListener("click", () => {
+  navbarLinks.classList.toggle("active");
+});
+
 $(document).ready(function () {
   $("#fetchval").on("change", function () {
     let value = $(this).val();
@@ -18,18 +25,20 @@ $(document).ready(function () {
 
 
 
-//Sticky Navbar
-window.onscroll = function () {
-  myFunction();
-};
+// //Sticky Navbar
+// window.onscroll = function () {
+//   myFunction();
+// };
 
-var navbar = document.getElementById("navbar");
-var sticky = navbar.offsetTop;
+// var navbar = document.getElementById("navbar");
+// var sticky = navbar.offsetTop;
 
-function myFunction() {
-  if (window.pageYOffset >= sticky) {
-    navbar.classList.add("sticky");
-  } else {
-    navbar.classList.remove("sticky");
-  }
-}
+// function myFunction() {
+//   if (window.pageYOffset >= sticky) {
+//     navbar.classList.add("sticky");
+//   } else {
+//     navbar.classList.remove("sticky");
+//   }
+// }
+
+

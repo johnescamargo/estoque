@@ -19,10 +19,10 @@ include('db_connection.php');
   <form method="POST">
     <div class="container">
       <label for="name"><b>Usuário</b></label>
-      <input type="text" placeholder="Enter Username" id="name" name="name" required />
+      <input type="text" placeholder="Nome" id="name" name="name" required />
 
       <label for="password"><b>Senha</b></label>
-      <input type="password" placeholder="Enter Password" id="password" name="password" required />
+      <input type="password" placeholder="Senha" id="password" name="password" required />
 
       <button type="submit">Entrar</button>
     </div>
