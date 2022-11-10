@@ -41,3 +41,11 @@ button:hover {
 .container {
   padding: 16px;
 }
+
+#h2-class {
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
+}

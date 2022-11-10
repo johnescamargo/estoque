@@ -36,7 +36,7 @@ include('save_product.php');
     </div>
   </nav>
 
-  <div class="container">
+  <div id="content">
 
     <?php
 
@@ -55,18 +55,18 @@ include('save_product.php');
       }
     }
     ?>
+  </div>
 
-    <br><br>
 
-    <div class="container">
+  <div class="container">
 
-    </div>
+  </div>
 
-    <div class="test">
+  <div class="test">
 
-    </div>
+  </div>
 
-    <script src="scriptStock.js"> </script>
+  <script src="scriptStock.js"> </script>
 </body>
 
 </html>

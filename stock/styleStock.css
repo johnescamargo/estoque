@@ -24,6 +24,11 @@ input[type="password"] {
   padding: 16px;
 }
 
+#content {
+  padding: 16px;
+}
+
+
 .header {
   background-color: #f1f1f1;
   padding: 30px;

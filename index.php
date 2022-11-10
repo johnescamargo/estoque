@@ -18,6 +18,9 @@ include('db_connection.php');
 <body>
   <form method="POST">
     <div class="container">
+      <div id="h2-class">
+        <h2>Bar do Bola</h2>
+      </div>
       <label for="name"><b>Usuário</b></label>
       <input type="text" placeholder="Nome" id="name" name="name" required />
 

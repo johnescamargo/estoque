@@ -39,7 +39,7 @@ include('session.php');
       <input type="text" placeholder="Nome" id="name" name="name" required />
       <label for="password"><b>Senha</b></label>
       <input type="password" placeholder="Senha" id="password" name="password" required />
-      <button type="submit">Entrar</button>
+      <button type="submit">Salvar</button>
     </div>
   </form>
   <?php

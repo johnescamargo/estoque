@@ -36,7 +36,7 @@ include('session.php');
   <form method="POST">
     <div class="container">
       <label for="name"><b>Nome da categoria</b></label>
-      <input type="text" placeholder="Enter name" id="name" name="name" required />
+      <input type="text" placeholder="Nome da categoria" id="name" name="name" required />
       <button type="submit">Salvar</button>
     </div>
 

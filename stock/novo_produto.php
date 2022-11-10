@@ -60,7 +60,7 @@ include('session.php');
 
 
 
-        <input type="text" placeholder="Enter Username" id="name" name="name" required />
+        <input type="text" placeholder="Nome do Produto" id="name" name="name" required />
         <button type="submit">Salvar</button>
       </div>
       <?php
