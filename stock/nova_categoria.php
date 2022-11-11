@@ -32,39 +32,40 @@ include('session.php');
       </ul>
     </div>
   </nav>
+  <div class="form-save">
+    <form method="POST">
+      <div class="container">
+        <label for="name"><b>Nome da categoria</b></label>
+        <input type="text" placeholder="Nome da categoria" id="name" name="name" required />
+        <button type="submit">Salvar</button>
+      </div>
 
-  <form method="POST">
-    <div class="container">
-      <label for="name"><b>Nome da categoria</b></label>
-      <input type="text" placeholder="Nome da categoria" id="name" name="name" required />
-      <button type="submit">Salvar</button>
-    </div>
+      <?php
 
-    <?php
+      if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $name = $_POST['name'];
+        echo $name;
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-      $name = $_POST['name'];
-      echo $name;
+        if ($conn->connect_error) {
+          die("Connection failed: " . $conn->connect_error);
+        }
 
-      if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-      }
-
-      $sql = "INSERT INTO mydb.db_category
+        $sql = "INSERT INTO mydb.db_category
               (name)
               VALUES ('$name');";
 
-      if ($conn->query($sql) === TRUE) {
-        echo "New record created successfully";
-        header('Location: nova_categoria.php');
-      } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
-      }
+        if ($conn->query($sql) === TRUE) {
+          echo "New record created successfully";
+          header('Location: nova_categoria.php');
+        } else {
+          echo "Error: " . $sql . "<br>" . $conn->error;
+        }
 
-      $conn->close();
-    }
-    ?>
-  </form>
+        $conn->close();
+      }
+      ?>
+    </form>
+  </div>
 
 
   <div class="content">

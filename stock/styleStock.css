@@ -20,15 +20,6 @@ input[type="password"] {
   border-radius: 8px;
 }
 
-.container {
-  padding: 16px;
-}
-
-#content {
-  padding: 16px;
-}
-
-
 .header {
   background-color: #f1f1f1;
   padding: 30px;
@@ -114,6 +105,69 @@ button:hover {
   border-color: #0267c5;
 }
 
+.button-del {
+  border-radius: 8px;
+  background-color: #c50202;
+  color: #ffffff;
+  width: 60px;
+  height: 30px;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  cursor: pointer;
+  transition-duration: 0.4s;
+  border: 2px solid #c50202;
+}
+
+.button-del:hover {
+  background-color: rgb(245, 240, 240);
+  color: #c50202;
+  border-color: #c50202;
+}
+
+.button-update {
+  border-radius: 8px;
+  background-color: #006b36;
+  color: #ffffff;
+  width: 60px;
+  height: 30px;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  cursor: pointer;
+  transition-duration: 0.4s;
+  border: 2px solid#006b36;
+  margin-top: 0%;
+  margin-right: 14%;
+  margin-bottom: 1%;
+  margin-left: 10%;
+}
+
+.button-update:hover {
+  background-color: rgb(245, 240, 240);
+  color: #006b36;
+  border-color: #006b36;
+}
+
+.container {
+  padding: 20px;
+}
+
+.content {
+  width: 700px;
+  margin-bottom: auto;
+  margin-left: 15px;
+  margin-right: auto;
+  margin-top: 15px;
+}
+
+.form-save {
+  border: 3px solid #f1f1f1;
+  width: 700px;
+  margin-bottom: auto;
+  margin-left: 15px;
+  margin-right: auto;
+  margin-top: 15px;
+}
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -124,7 +178,7 @@ button:hover {
 
 .brand-title {
   font-size: 1.5rem;
-  margin: .5rem;
+  margin: 0.5rem;
 }
 
 .navbar-links ul {
@@ -154,7 +208,7 @@ button:hover {
 
 .toggle-button {
   position: absolute;
-  top: .75rem;
+  top: 0.75rem;
   right: 1rem;
   display: none;
   flex-direction: column;
@@ -192,10 +246,30 @@ button:hover {
   }
 
   .navbar-links li a {
-    padding: .5rem 1rem;
+    padding: 0.5rem 1rem;
   }
 
   .navbar-links.active {
     display: flex;
+  }
+
+  .container {
+    padding: 20px;
+  }
+
+  .form-save {
+    border: 3px solid #f1f1f1;
+    width: 370px;
+    margin-bottom: auto;
+    margin-left: 10px;
+    margin-right: auto;
+    margin-top: 10px;
+  }
+  .content {
+    width: 370px;
+    margin-bottom: auto;
+    margin-left: 10px;
+    margin-right: auto;
+    margin-top: 10px;
   }
 }

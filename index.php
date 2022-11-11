@@ -16,6 +16,7 @@ include('db_connection.php');
 </head>
 
 <body>
+
   <form method="POST">
     <div class="container">
       <div id="h2-class">
@@ -54,7 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     header('Location: success.html');
     header('Location: stock/produtos.php');
   } else {
-    echo '<div>Nome ou senha invalida!</div>';
+    echo "<div class='alert-div'>Nome ou senha invalida!</div>";
   }
 }
 ?>

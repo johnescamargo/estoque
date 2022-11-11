@@ -34,7 +34,7 @@ if (isset($_POST['request'])) {
                 </tr>
             <?php
         } else {
-            echo "Desculpe, nenhumproduto encontrado";
+            echo "Desculpe, nenhum produto encontrado";
         }
             ?>
             </thead>

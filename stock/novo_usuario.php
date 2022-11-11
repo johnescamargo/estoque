@@ -33,15 +33,17 @@ include('session.php');
     </div>
   </nav>
 
-  <form method="POST">
-    <div class="container">
-      <label for="name"><b>Usuário</b></label>
-      <input type="text" placeholder="Nome" id="name" name="name" required />
-      <label for="password"><b>Senha</b></label>
-      <input type="password" placeholder="Senha" id="password" name="password" required />
-      <button type="submit">Salvar</button>
-    </div>
-  </form>
+  <div class="form-save">
+    <form method="POST">
+      <div class="container">
+        <label for="name"><b>Usuário</b></label>
+        <input type="text" placeholder="Nome" id="name" name="name" required />
+        <label for="password"><b>Senha</b></label>
+        <input type="password" placeholder="Senha" id="password" name="password" required />
+        <button type="submit">Salvar</button>
+      </div>
+    </form>
+  </div>
   <?php
 
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -50,7 +52,7 @@ include('session.php');
     $sql3 = "INSERT INTO mydb.db_user (name, password) VALUES('$name', '$password');";
 
     if ($conn->query($sql3) === TRUE) {
-      echo "New record created successfully/n";
+      echo "New record created successfully";
       header("Location: novo_usuario.php");
     } else {
       echo "Error: " . $sql3 . "<br>" . $conn->error;
@@ -72,6 +74,7 @@ include('session.php');
             <tr>
               <th>Id</th>
               <th>Nome</th>
+              <th></th>
             </tr>
 
           </thead>
@@ -80,8 +83,12 @@ include('session.php');
             while ($row = $result->fetch_assoc()) {
             ?>
               <tr>
-                <td><?php echo $row["id"] ?></td>
+                <td id="id-<?php echo $row["id"] ?>"><?php echo $row["id"] ?></td>
                 <td><?php echo $row["name"] ?></td>
+                <td>
+                  <button class="button-update" id='update-<?php echo $row["id"] ?>'>Update</button>
+                  <button class="button-del" id='<?php echo $row["id"] ?>'>Deletar</button>
+                </td>
               </tr>
         <?php
             }
@@ -94,9 +101,10 @@ include('session.php');
     </table>
   </div>
 
-  <script src="scriptStock.js">
+  <div class="test"></div>
 
-  </script>
+  <script src="scriptStock.js"></script>
+  <script src="script_delete.js"></script>
 </body>
 
 </html>

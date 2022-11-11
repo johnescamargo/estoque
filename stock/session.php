@@ -11,7 +11,7 @@ $row = mysqli_fetch_array($ses_sql, MYSQLI_ASSOC);
 $login_session = $row['name'];
 
 if (!isset($_SESSION['login_name'])) {
-  // header("Location:../index.php");
+   header("Location:../index.php");
    die();
 }
 

@@ -4,9 +4,6 @@ if (!isset($_SESSION)) {
    session_start();
 }
 
-// foreach ($data as $d) {
-//    echo $d;
-// }
 
 if (isset($_POST['data'])) {
    // Data from jquery ajax

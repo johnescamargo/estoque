@@ -34,59 +34,58 @@ include('session.php');
     </div>
   </nav>
 
+  <div class="form-save">
+    <form method="POST">
+      <div class="container">
+        <label for="name"><b>Nome do Produto</b></label>
+        <div>
 
-  <form method="POST">
-    <div class="container">
-      <label for="name"><b>Nome do Produto</b></label>
-      <div>
+          <?php
 
+          $sql = "SELECT * FROM db_category;";
+
+          if ($result = mysqli_query($conn, $sql)) {
+            if (mysqli_num_rows($result) > 0) {
+              echo "<select name='category_product'>" .
+                "<option value='' disabled='' selected=''>Selecione</option>";
+              while ($row = $result->fetch_assoc()) {
+                echo "<option value='" . $row["id"] . "'>" . $row["name"] . "</option>";
+              }
+              echo "</select>";
+            } else {
+              echo "0 Result";
+            }
+          }
+          ?>
+
+          <input type="text" placeholder="Nome do Produto" id="name" name="name" required />
+          <button type="submit">Salvar</button>
+        </div>
         <?php
 
-        $sql = "SELECT * FROM db_category;";
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+          $name = $_POST['name'];
+          $id = $_POST['category_product'];
 
-        if ($result = mysqli_query($conn, $sql)) {
-          if (mysqli_num_rows($result) > 0) {
-            echo "<select name='category_product'>" .
-              "<option value='' disabled='' selected=''>Selecione</option>";
-            while ($row = $result->fetch_assoc()) {
-              echo "<option value='" . $row["id"] . "'>" . $row["name"] . "</option>";
-            }
-            echo "</select>";
-          } else {
-            echo "0 Result";
+          if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
           }
-        }
-        ?>
 
-
-
-        <input type="text" placeholder="Nome do Produto" id="name" name="name" required />
-        <button type="submit">Salvar</button>
-      </div>
-      <?php
-
-      if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $name = $_POST['name'];
-        $id = $_POST['category_product'];
-
-        if ($conn->connect_error) {
-          die("Connection failed: " . $conn->connect_error);
-        }
-
-        $sql = "INSERT INTO mydb.db_product
+          $sql = "INSERT INTO mydb.db_product
               (name, quantity, db_category_id)
               VALUES ('$name', 0, '$id')";
 
-        if ($conn->query($sql) === TRUE) {
-          echo "New record created successfully";
-        } else {
-          echo "Error: " . $sql . "<br>" . $conn->error;
-        }
+          if ($conn->query($sql) === TRUE) {
+            echo "New record created successfully";
+          } else {
+            echo "Error: " . $sql . "<br>" . $conn->error;
+          }
 
-        $conn->close();
-      }
-      ?>
-  </form>
+          $conn->close();
+        }
+        ?>
+    </form>
+  </div>
 
   <script src="scriptStock.js">
 
