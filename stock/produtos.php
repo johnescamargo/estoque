@@ -28,15 +28,15 @@ include('save_product.php');
     <div class="navbar-links">
       <ul>
         <li><a class="active" href="produtos.php">Produtos</a> </li>
-        <li><a href="novo_produto.php">Novo Produto</a></li>
-        <li><a href="nova_categoria.php">Nova Categoria</a></li>
-        <li><a href="novo_usuario.php">Novo Usuário</a></li>
+        <li><a href="novo_produto.php">Produto</a></li>
+        <li><a href="nova_categoria.php">Categoria</a></li>
+        <li><a href="novo_usuario.php">Usuário</a></li>
         <li><a href="../logout.php">Sair</a></li>
       </ul>
     </div>
   </nav>
 
-  <div id="content">
+  <div class="content">
 
     <?php
 

@@ -1,9 +1,22 @@
 const toggleButton = document.getElementsByClassName("toggle-button")[0];
 const navbarLinks = document.getElementsByClassName("navbar-links")[0];
+const notification = document.getElementById("notification-container");
+const nameCat = document.getElementById("name");
 
 toggleButton.addEventListener("click", () => {
   navbarLinks.classList.toggle("active");
 });
+
+// Show notification
+function showNotification() {
+  if (nameCat.value !== "") {
+    notification.classList.add("show");
+
+    setTimeout(() => {
+      notification.classList.remove("show");
+    }, 2000);
+  }
+}
 
 $(document).ready(function () {
   $("#fetchval").on("change", function () {
@@ -22,23 +35,3 @@ $(document).ready(function () {
     });
   });
 });
-
-
-
-// //Sticky Navbar
-// window.onscroll = function () {
-//   myFunction();
-// };
-
-// var navbar = document.getElementById("navbar");
-// var sticky = navbar.offsetTop;
-
-// function myFunction() {
-//   if (window.pageYOffset >= sticky) {
-//     navbar.classList.add("sticky");
-//   } else {
-//     navbar.classList.remove("sticky");
-//   }
-// }
-
-

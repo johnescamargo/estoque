@@ -25,9 +25,9 @@ include('session.php');
     <div class="navbar-links">
       <ul>
         <li><a href="produtos.php">Produtos</a></li>
-        <li><a href="novo_produto.php">Novo Produto</a></li>
-        <li><a class="active" href="nova_categoria.php">Nova Categoria</a></li>
-        <li><a href="novo_usuario.php">Novo Usuário</a></li>
+        <li><a href="novo_produto.php">Produto</a></li>
+        <li><a class="active" href="nova_categoria.php">Categoria</a></li>
+        <li><a href="novo_usuario.php">Usuário</a></li>
         <li><a href="../logout.php">Sair</a></li>
       </ul>
     </div>
@@ -37,7 +37,7 @@ include('session.php');
       <div class="container">
         <label for="name"><b>Nome da categoria</b></label>
         <input type="text" placeholder="Nome da categoria" id="name" name="name" required />
-        <button type="submit">Salvar</button>
+        <button onclick="showNotification()" type="submit">Salvar</button>
       </div>
 
       <?php
@@ -57,6 +57,7 @@ include('session.php');
         if ($conn->query($sql) === TRUE) {
           echo "New record created successfully";
           header('Location: nova_categoria.php');
+          sleep(2.8);
         } else {
           echo "Error: " . $sql . "<br>" . $conn->error;
         }
@@ -78,7 +79,8 @@ include('session.php');
           <thead>
             <tr>
               <th>Id</th>
-              <th>Nome da categoria</th>
+              <th>Nome</th>
+              <th></th>
             </tr>
 
           </thead>
@@ -89,6 +91,10 @@ include('session.php');
               <tr>
                 <td><?php echo $row["id"] ?></td>
                 <td><?php echo $row["name"] ?></td>
+                <td>
+                  <button class="button-update" id='update-<?php echo $row["id"] ?>'>Update</button>
+                  <button class="button-del" id='<?php echo $row["id"] ?>'>Deletar</button>
+                </td>
               </tr>
         <?php
             }
@@ -101,9 +107,12 @@ include('session.php');
     </table>
   </div>
 
-  <script src="scriptStock.js">
+  <!-- Notification -->
+  <div class="notification-container" id="notification-container">
+    <p>Nova categoria criada!</p>
+  </div>
 
-  </script>
+  <script src="scriptStock.js"></script>
 </body>
 
 </html>

@@ -1,9 +1,5 @@
 <?php
 include('db_connection.php');
-if (!isset($_SESSION)) {
-   session_start();
-}
-
 
 if (isset($_POST['data'])) {
    // Data from jquery ajax

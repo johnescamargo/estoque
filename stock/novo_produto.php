@@ -26,9 +26,9 @@ include('session.php');
     <div class="navbar-links">
       <ul>
         <li><a href="produtos.php">Produtos</a></li>
-        <li><a class="active" href="novo_produto.php">Novo Produto</a></li>
-        <li><a href="nova_categoria.php">Nova Categoria</a></li>
-        <li><a href="novo_usuario.php">Novo Usuário</a></li>
+        <li><a class="active" href="novo_produto.php">Produto</a></li>
+        <li><a href="nova_categoria.php">Categoria</a></li>
+        <li><a href="novo_usuario.php">Usuário</a></li>
         <li><a href="../logout.php">Sair</a></li>
       </ul>
     </div>
@@ -58,14 +58,32 @@ include('session.php');
           }
           ?>
 
-          <input type="text" placeholder="Nome do Produto" id="name" name="name" required />
-          <button type="submit">Salvar</button>
+          <input type="text" placeholder="Nome do Produto" id="name" name="name" />
+          <button onclick="showNotification" type="submit">Salvar</button>
         </div>
         <?php
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
           $name = $_POST['name'];
           $id = $_POST['category_product'];
+          echo "<div>ID: " . $id . ", name: " . $name . "</div>";
+
+
+          if ($id == "") {
+            echo "
+            <div style='background-color: rgba(134, 36, 36, 0.527);' class='notification-container' id='notification-container'>
+            <p>Insira o nome do produto! 1</p>
+            </div>";
+            sleep(3);
+          }
+
+
+          // if ($name == "") {
+          //   echo "
+          //   <div style='background-color: rgba(134, 36, 36, 0.527);' class='notification-container' id='notification-container'>
+          //   <p>Insira o nome do produto! 2</p>
+          //   </div>";
+          // }
 
           if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
@@ -76,9 +94,22 @@ include('session.php');
               VALUES ('$name', 0, '$id')";
 
           if ($conn->query($sql) === TRUE) {
-            echo "New record created successfully";
+            //echo "New record created successfully";
+
+            echo "
+                  <!-- Notification -->
+                  <div class='notification-container' id='notification-container'>
+                  <p>Nova produto criado!</p>
+                  </div>
+                 ";
+            sleep(3);
           } else {
-            echo "Error: " . $sql . "<br>" . $conn->error;
+            echo "
+                 <div style='background-color: rgba(134, 36, 36, 0.527);' class='notification-container' id='notification-container'>
+                 <p>Insira o nome do produto!</p>
+                 </div>";
+
+            // "Error: " . $sql . "<br>" . $conn->error;
           }
 
           $conn->close();
@@ -87,9 +118,7 @@ include('session.php');
     </form>
   </div>
 
-  <script src="scriptStock.js">
-
-  </script>
+  <script src="scriptStock.js"></script>
 </body>
 
 </html>

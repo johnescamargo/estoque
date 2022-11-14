@@ -35,7 +35,7 @@ input[type="password"] {
 #customers td,
 #customers th {
   border: 1px solid #ddd;
-  padding: 8px;
+  padding: 4px;
 }
 
 #customers tr:nth-child(even) {
@@ -62,9 +62,18 @@ select {
   cursor: pointer;
 }
 
+option:checked {
+  background-color: #0267c5;
+  color: #ffffff;
+}
+
 option {
   font-size: medium;
   cursor: pointer;
+}
+
+option:hover {
+  background-color: #0267c5;
 }
 
 button {
@@ -152,7 +161,7 @@ button:hover {
 }
 
 .content {
-  width: 700px;
+  width: 800px;
   margin-bottom: auto;
   margin-left: 15px;
   margin-right: auto;
@@ -161,7 +170,7 @@ button:hover {
 
 .form-save {
   border: 3px solid #f1f1f1;
-  width: 700px;
+  width: 800px;
   margin-bottom: auto;
   margin-left: 15px;
   margin-right: auto;
@@ -224,7 +233,25 @@ button:hover {
   border-radius: 10px;
 }
 
-@media (max-width: 1012px) {
+.notification-container {
+  background-color: rgba(36, 134, 102, 0.527);
+  border-radius: 10px 10px 0 0;
+  padding: 15px 20px;
+  position: fixed;
+  bottom: -53px; 
+  transition: transform 0.2s ease-in-out;
+  margin-left: 30%;
+}
+
+.notification-container p {
+  margin: 0;
+}
+
+.notification-container.show {
+  transform: translateY(-50px);
+}
+
+@media (max-width: 843px) {
   .toggle-button {
     display: flex;
   }
@@ -259,16 +286,16 @@ button:hover {
 
   .form-save {
     border: 3px solid #f1f1f1;
-    width: 370px;
+    width: 97%;
     margin-bottom: auto;
-    margin-left: 10px;
+    margin-left: 5px;
     margin-right: auto;
     margin-top: 10px;
   }
   .content {
-    width: 370px;
+    width: 97%;
     margin-bottom: auto;
-    margin-left: 10px;
+    margin-left: 5px;
     margin-right: auto;
     margin-top: 10px;
   }
