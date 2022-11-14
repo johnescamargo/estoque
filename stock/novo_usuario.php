@@ -104,7 +104,7 @@ include('session.php');
   <div class="test"></div>
 
   <script src="scriptStock.js"></script>
-  <script src="script_delete.js"></script>
+  <script src="script_user.js"></script>
 </body>
 
 </html>

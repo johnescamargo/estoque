@@ -19,7 +19,7 @@ $(document).ready(function () {
       id_user = $(id_user).text();
       $.ajax({
         type: "POST",
-        url: "delete.php",
+        url: "delete_user.php",
         data: "request=" + id_user,
         success: function (data) {
           $(".test").html(data);

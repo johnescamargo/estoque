@@ -89,7 +89,7 @@ include('session.php');
             while ($row = $result->fetch_assoc()) {
             ?>
               <tr>
-                <td><?php echo $row["id"] ?></td>
+                <td id="id-<?php echo $row["id"] ?>"><?php echo $row["id"] ?></td>
                 <td><?php echo $row["name"] ?></td>
                 <td>
                   <button class="button-update" id='update-<?php echo $row["id"] ?>'>Update</button>
@@ -113,6 +113,7 @@ include('session.php');
   </div>
 
   <script src="scriptStock.js"></script>
+  <script src="script_category.js"></script>
 </body>
 
 </html>
