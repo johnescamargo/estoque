@@ -90,7 +90,7 @@ include('session.php');
             ?>
               <tr>
                 <td id="id-<?php echo $row["id"] ?>"><?php echo $row["id"] ?></td>
-                <td><?php echo $row["name"] ?></td>
+                <td id="name-<?php echo $row["id"] ?>"><?php echo $row["name"] ?></td>
                 <td>
                   <button class="button-update" id='update-<?php echo $row["id"] ?>'>Update</button>
                   <button class="button-del" id='<?php echo $row["id"] ?>'>Deletar</button>
@@ -107,10 +107,27 @@ include('session.php');
     </table>
   </div>
 
+  <!-- The Modal -->
+  <div id="myModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <div class="form-save">
+        <div class="container">
+          <label for="name1"><b>Nome da categoria</b></label>
+          <input type="text" placeholder="Nome da categoria" id="name1" name="name1" />
+          <button id="create" class="button-update" type="submit">Update</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Notification -->
   <div class="notification-container" id="notification-container">
     <p>Nova categoria criada!</p>
   </div>
+
+        <div class="test"></div>
 
   <script src="scriptStock.js"></script>
   <script src="script_category.js"></script>
