@@ -130,7 +130,7 @@ include('session.php');
         <div class="test"></div>
 
   <script src="scriptStock.js"></script>
-  <script src="script_category.js"></script>
+  <script src="./category/script_category.js"></script>
 </body>
 
 </html>

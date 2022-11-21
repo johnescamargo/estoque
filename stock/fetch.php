@@ -1,5 +1,4 @@
 <?php
-//include("session.php");
 include("save_product.php");
 
 if (isset($_POST['request'])) {

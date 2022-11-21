@@ -1,5 +1,6 @@
 <?php
-include('session.php');
+include('../session.php');
+include('../db_connection.php');
 
 if (isset($_POST['data'])) {
   // Data from jquery ajax

@@ -38,7 +38,7 @@ $(document).ready(function () {
 
       $.ajax({
         type: "POST",
-        url: "update_category.php",
+        url: "./category/update_category.php",
         data: { data: jsonString },
         cache: false,
         success: function (data) {
@@ -56,7 +56,7 @@ $(document).ready(function () {
       id_category = $(id_category).text();
       $.ajax({
         type: "POST",
-        url: "delete_category.php",
+        url: "./category/delete_category.php",
         data: "request=" + id_category,
         success: function (data) {
           $(".test").html(data);

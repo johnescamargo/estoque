@@ -1,5 +1,5 @@
 <?php
-include('db_connection.php');
+include('./db_connection.php');
 
 if (isset($_POST['data'])) {
    // Data from jquery ajax

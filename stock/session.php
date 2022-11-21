@@ -1,5 +1,5 @@
 <?php
-include('db_connection.php');
+include('./db_connection.php');
 session_start();
 
 $user_check = $_SESSION['login_name'];
