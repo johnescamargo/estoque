@@ -1,8 +1,8 @@
 <?php
-include("save_product.php");
 
 if (isset($_POST['request'])) {
-
+    sleep(1);
+    include('../db_connection.php');
     $request = $_POST['request'];
 
     $query = "SELECT distinct db_product.id, db_product.name, db_product.quantity 
@@ -44,7 +44,7 @@ if (isset($_POST['request'])) {
                 ?>
                     <tr>
                         <td id="id-<?php echo $row["id"] ?>"><?php echo $row["id"] ?></td>
-                        <td><a href="http://www.google.com"><?php echo $row["name"] ?></a></td>
+                        <td><?php echo $row["name"] ?></td>
                         <td><input id="entrada-<?php echo $row["id"] ?>" type='text' placeholder="0"></td>
                         <td><input id="venda-<?php echo $row["id"] ?>" type='text' placeholder="0"></td>
                         <td><input id="consumo-<?php echo $row["id"] ?>" type='text' placeholder="0"></td>
@@ -71,4 +71,4 @@ if (isset($_POST['request'])) {
 <?php
 }
 ?>
-<script src="script2.js"></script>
+<script src="./produtos/script_produtos.js"></script>

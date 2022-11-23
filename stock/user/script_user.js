@@ -10,7 +10,6 @@ var span = document.getElementsByClassName("close")[0];
 // When the user clicks the button, open the modal
 function func(nome) {
   modal.style.display = "block";
-  name1.value = nome;
 }
 
 // When the user clicks on <span> (x), close the modal
@@ -30,14 +29,13 @@ $(document).ready(function () {
     var id_category = "#id-" + this.id;
     var id_up = this.id;
 
-    if (this.id == "create") {
+    if (this.id === "create" && name1.value !== "") {
       var dataString = [name1.value, id];
-
       var jsonString = JSON.stringify(dataString);
 
       $.ajax({
         type: "POST",
-        url: "./category/update_category.php",
+        url: "./user/update_user.php",
         data: { data: jsonString },
         cache: false,
         success: function (data) {
@@ -45,18 +43,20 @@ $(document).ready(function () {
           location.reload(); // Reloading the page
         },
       });
+
     } else if (id_category.match("update")) {
       var nome = id_up.replace("update-", "");
       id = nome;
       var name = "name-" + nome;
       var name2 = document.getElementById(name.toString()).innerHTML;
       func(name2);
-    } else {
-      id_category = $(id_category).text();
+      
+    } else if (id_category.match("delete")) {
+      var id_user = id_up.replace("delete-", "");
       $.ajax({
         type: "POST",
-        url: "./category/delete_category.php",
-        data: "request=" + id_category,
+        url: "./user/delete_user.php",
+        data: "request=" + id_user,
         success: function (data) {
           $(".test").html(data);
           location.reload(); // Reloading the page

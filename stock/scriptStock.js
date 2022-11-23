@@ -23,11 +23,11 @@ $(document).ready(function () {
     let value = $(this).val();
 
     $.ajax({
-      url: "fetch.php",
+      url: "./produtos/fetch.php",
       type: "POST",
       data: "request=" + value,
       beforeSend: function () {
-        $(".container").html("<span>Working...</span>");
+        $(".container").html("<span>Carregando dados...</span>");
       },
       success: function (data) {
         $(".container").html(data);

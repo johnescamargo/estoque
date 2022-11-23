@@ -1,7 +1,8 @@
 <?php
 include('session.php');
-include('fetch.php');
-include('save_product.php');
+include('./produtos/fetch.php');
+include('./produtos/save_product.php');
+include('db_connection.php');
 
 ?>
 

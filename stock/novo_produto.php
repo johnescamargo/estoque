@@ -47,7 +47,7 @@ include('session.php');
           if ($result = mysqli_query($conn, $sql)) {
             if (mysqli_num_rows($result) > 0) {
               echo "<select name='category_product'>" .
-                "<option value='' disabled='' selected=''>Selecione</option>";
+                "<option value=' ' disabled='' selected=''>Selecione</option>";
               while ($row = $result->fetch_assoc()) {
                 echo "<option value='" . $row["id"] . "'>" . $row["name"] . "</option>";
               }
@@ -58,61 +58,36 @@ include('session.php');
           }
           ?>
 
-          <input type="text" placeholder="Nome do Produto" id="name" name="name" />
+          <input type="text" placeholder="Nome do Produto" id="name" name="name" required />
           <button onclick="showNotification" type="submit">Salvar</button>
         </div>
         <?php
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
           $name = $_POST['name'];
-          $id = $_POST['category_product'];
-          echo "<div>ID: " . $id . ", name: " . $name . "</div>";
+          $id = "empty";
+
+          //Checking if category is selected
+          if(isset($_POST['category_product'])){
+            $id = $_POST['category_product'];
+         }
 
 
-          if ($id == "") {
-            echo "
-            <div style='background-color: rgba(134, 36, 36, 0.527);' class='notification-container' id='notification-container'>
-            <p>Insira o nome do produto! 1</p>
-            </div>";
-            sleep(3);
-          }
+          if ($id != "empty") {
 
+            $sql = "INSERT INTO mydb.db_product
+                   (name, quantity, db_category_id)
+                 VALUES ('$name', 0, '$id')";
+            if ($conn->query($sql) === TRUE) {
+              echo "New record created successfully";
+            } else {
+              echo "Error: " . $sql . "<br>" . $conn->error;
+            }
 
-          // if ($name == "") {
-          //   echo "
-          //   <div style='background-color: rgba(134, 36, 36, 0.527);' class='notification-container' id='notification-container'>
-          //   <p>Insira o nome do produto! 2</p>
-          //   </div>";
-          // }
-
-          if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-          }
-
-          $sql = "INSERT INTO mydb.db_product
-              (name, quantity, db_category_id)
-              VALUES ('$name', 0, '$id')";
-
-          if ($conn->query($sql) === TRUE) {
-            //echo "New record created successfully";
-
-            echo "
-                  <!-- Notification -->
-                  <div class='notification-container' id='notification-container'>
-                  <p>Nova produto criado!</p>
-                  </div>
-                 ";
-            sleep(3);
+            $conn->close();
           } else {
-            echo "
-                 <div style='background-color: rgba(134, 36, 36, 0.527);' class='notification-container' id='notification-container'>
-                 <p>Insira o nome do produto!</p>
-                 </div>";
-
-            // "Error: " . $sql . "<br>" . $conn->error;
+            echo "Error: Escolha uma categoria";
           }
-
-          $conn->close();
         }
         ?>
     </form>

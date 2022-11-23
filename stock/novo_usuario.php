@@ -84,10 +84,10 @@ include('session.php');
             ?>
               <tr>
                 <td id="id-<?php echo $row["id"] ?>"><?php echo $row["id"] ?></td>
-                <td><?php echo $row["name"] ?></td>
+                <td id="name-<?php echo $row["id"] ?>"><?php echo $row["name"] ?></td>
                 <td>
                   <button class="button-update" id='update-<?php echo $row["id"] ?>'>Update</button>
-                  <button class="button-del" id='<?php echo $row["id"] ?>'>Deletar</button>
+                  <button class="button-del" id='delete-<?php echo $row["id"] ?>'>Deletar</button>
                 </td>
               </tr>
         <?php
@@ -101,10 +101,27 @@ include('session.php');
     </table>
   </div>
 
+
+  <!-- The Modal -->
+  <div id="myModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <div class="form-save">
+        <div class="container">
+          <label for="name1"><b>Nova Senha</b></label>
+          <input type="password" placeholder="Nova senha" id="name1" name="name1" required />
+          <button id="create" class="button-update" type="submit">Update</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
   <div class="test"></div>
 
   <script src="scriptStock.js"></script>
-  <script src="script_user.js"></script>
+  <script src="./user/script_user.js"></script>
 </body>
 
 </html>

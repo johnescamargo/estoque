@@ -38,7 +38,7 @@ $(document).ready(function () {
 
     $.ajax({
       type: "POST",
-      url: "save_product.php",
+      url: "./produtos/save_product.php",
       data: { data: jsonString },
       cache: false,
 

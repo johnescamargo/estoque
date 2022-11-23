@@ -1,5 +1,6 @@
 <?php
 include('session.php');
+include('db_connection.php')
 ?>
 
 <!DOCTYPE html>
@@ -127,10 +128,12 @@ include('session.php');
     <p>Nova categoria criada!</p>
   </div>
 
-        <div class="test"></div>
+
+
+  <div class="test"></div>
 
   <script src="scriptStock.js"></script>
-  <script src="./category/script_category.js"></script>
+  <script src="category/script_category.js"></script>
 </body>
 
 </html>

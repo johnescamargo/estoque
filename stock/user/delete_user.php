@@ -1,6 +1,6 @@
 <?php
-include('./db_connection.php');
-include('session.php');
+include('../db_connection.php');
+include('../session.php');
 
 if (isset($_POST['request'])) {
     $request = $_POST['request'];

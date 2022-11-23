@@ -6,10 +6,10 @@ if (isset($_POST['data'])) {
   // Data from jquery ajax
   $data = json_decode(stripslashes($_POST['data']));
 
-  $name = $data[0];
+  $password = $data[0];
   $id = $data[1];
 
-  $sql = "UPDATE db_category SET name='$name' WHERE id='$id';";
+  $sql = "UPDATE db_user SET password='$password' WHERE id='$id';";
 
   if ($conn->query($sql) === TRUE) {
     echo "Record updated successfully";

@@ -1,5 +1,5 @@
 <?php
-include('./db_connection.php');
+include('db_connection.php');
 session_start();
 
 $user_check = $_SESSION['login_name'];
@@ -14,5 +14,3 @@ if (!isset($_SESSION['login_name'])) {
    header("Location:../index.php");
    die();
 }
-
-?>

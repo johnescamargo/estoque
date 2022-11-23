@@ -6,7 +6,6 @@ include('./stock/db_connection.php');
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -20,9 +19,9 @@ include('./stock/db_connection.php');
   <form method="POST">
     <div class="container">
       <div id="h2-class">
-        <h2>Bar do Bola</h2>
+       <!--<h2>Bar do Bola</h2>--> 
       </div>
-      <label for="name"><b>Usuário</b></label>
+       <label for="name"><b>Usuário</b></label>
       <input type="text" placeholder="Nome" id="name" name="name" required />
 
       <label for="password"><b>Senha</b></label>
