@@ -34,10 +34,10 @@ include('session.php');
     </div>
   </nav>
 
-  <div class="form-save">
-    <form method="POST">
+  <div>
+    <form class="form-save" method="POST">
       <div class="container">
-        <label for="name"><b>Nome do Produto</b></label>
+        <label for="name"><b>Categoria</b></label>
         <div>
 
           <?php
@@ -57,7 +57,8 @@ include('session.php');
             }
           }
           ?>
-
+          </br></br>
+          <label for="name"><b>Nome do Produto</b></label>
           <input type="text" placeholder="Nome do Produto" id="name" name="name" required />
           <button onclick="showNotification" type="submit">Salvar</button>
         </div>
@@ -68,9 +69,9 @@ include('session.php');
           $id = "empty";
 
           //Checking if category is selected
-          if(isset($_POST['category_product'])){
+          if (isset($_POST['category_product'])) {
             $id = $_POST['category_product'];
-         }
+          }
 
 
           if ($id != "empty") {
@@ -93,7 +94,21 @@ include('session.php');
     </form>
   </div>
 
+  <div class="content">
+    <div class="container" style="max-width: 50%;">
+      <div class="text-center mt-5 mb-4">
+        <label for="name"><b>Procurar Produtos</b></label>
+      </div>
+      <input type="text" class="form-control" id="live_search" autocomplete="off" placeholder="Digite ... ">
+    </div>
+  </div>
+
+  <div class="content">
+    <div id="search-result"></div>
+  </div>
+
   <script src="scriptStock.js"></script>
+  <script src="./produto/script_live_search.js"></script>
 </body>
 
 </html>

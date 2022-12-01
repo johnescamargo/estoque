@@ -6,6 +6,7 @@ body {
   margin: 0;
   font-size: 20px;
   font-family: Arial, Helvetica, sans-serif;
+  margin-top: 70px;
 }
 
 /* Full-width inputs */
@@ -183,6 +184,9 @@ button:hover {
   align-items: center;
   background-color: #333;
   color: white;
+  position: fixed;
+  width: 100%;
+  top: 0px;
 }
 
 .brand-title {
@@ -291,6 +295,11 @@ button:hover {
 }
 
 @media (max-width: 843px) {
+  body {
+    margin-top: 50px;
+  }
+
+
   .toggle-button {
     display: flex;
   }
