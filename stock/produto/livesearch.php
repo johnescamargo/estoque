@@ -4,14 +4,14 @@ include("../db_connection.php");
 
 if (isset($_POST['input'])) {
     $input = $_POST['input'];
-    $query = "SELECT * FROM db_product WHERE name LIKE '{$input}%' LIMIT 10;";
+    $query = "SELECT * FROM db_product WHERE name LIKE '{$input}%' or id ='{$input}%'  LIMIT 10;";
     $result = mysqli_query($conn, $query);
     if (mysqli_num_rows($result) > 0) { ?>
-       
-       <table class="table" id='customers'>
-        <?php
 
-        ?>
+        <table class="table" id='customers'>
+            <?php
+
+            ?>
             <thead>
                 <tr>
                     <th>Id</th>
@@ -33,7 +33,7 @@ if (isset($_POST['input'])) {
 
                 ?>
             </tbody>
-    </table>
+        </table>
 
 <?php
     } else {

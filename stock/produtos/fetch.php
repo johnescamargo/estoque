@@ -29,7 +29,7 @@ if (isset($_POST['request'])) {
                     <th>Consumo</th>
                     <th>Perda</th>
                     <th>Em estoque</th>
-                    <th></th>
+                    <th>Salvar</th>
                 </tr>
             <?php
         } else {
@@ -45,10 +45,10 @@ if (isset($_POST['request'])) {
                     <tr>
                         <td id="id-<?php echo $row["id"] ?>"><?php echo $row["id"] ?></td>
                         <td><?php echo $row["name"] ?></td>
-                        <td><input id="entrada-<?php echo $row["id"] ?>" type='text' placeholder="0"></td>
-                        <td><input id="venda-<?php echo $row["id"] ?>" type='text' placeholder="0"></td>
-                        <td><input id="consumo-<?php echo $row["id"] ?>" type='text' placeholder="0"></td>
-                        <td><input id="perda-<?php echo $row["id"] ?>" type='text' placeholder="0"></td>
+                        <td><input id="entrada-<?php echo $row["id"] ?>" type='number' placeholder="0"></td>
+                        <td><input id="venda-<?php echo $row["id"] ?>" type='number' placeholder="0"></td>
+                        <td><input id="consumo-<?php echo $row["id"] ?>" type='number' placeholder="0"></td>
+                        <td><input id="perda-<?php echo $row["id"] ?>" type='number' placeholder="0"></td>
                         <td>
                             <div id="quantity-<?php echo $row["id"] ?>">
                                 <?php echo $row["quantity"] ?>

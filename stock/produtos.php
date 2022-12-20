@@ -32,7 +32,9 @@ include('db_connection.php');
         <li><a href="novo_produto.php">Produto</a></li>
         <li><a href="nova_categoria.php">Categoria</a></li>
         <li><a href="novo_usuario.php">Usuário</a></li>
+        <li><a href="relatorio.php">Relatório</a></li>
         <li><a href="../logout.php">Sair</a></li>
+        
       </ul>
     </div>
   </nav>

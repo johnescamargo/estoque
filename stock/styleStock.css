@@ -11,13 +11,15 @@ body {
 
 /* Full-width inputs */
 input[type="text"],
-input[type="password"] {
+input[type="password"],
+input[type="number"],
+input[type="date"] 
+{
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
   border: 1px solid #ccc;
-  box-sizing: border-box;
   border-radius: 8px;
 }
 
@@ -50,7 +52,6 @@ input[type="password"] {
 #customers th {
   padding-top: 12px;
   padding-bottom: 12px;
-  text-align: left;
   background-color: #09035f;
   color: white;
 }
